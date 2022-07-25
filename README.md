@@ -4,12 +4,3 @@
 
 - The `commands` directory is temporary for testing purposes.
 - Read the [docs](./src/docs);
-
-### Create a `src/config.json`
-
-```json
-{
-  "token": "",
-  "clientId": ""
-}
-```
