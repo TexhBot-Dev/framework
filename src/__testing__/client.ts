@@ -1,11 +1,9 @@
-import { Client, GatewayIntentBits } from "discord.js";
-import { Bot } from "..";
+import { GatewayIntentBits } from "discord.js";
+import { TechClient } from "..";
 import { token } from "./config.json";
 
-const client = new Client({
-  intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers],
+const client = new TechClient({
+	intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers],
 });
 
-const bot = new Bot(client);
-
-bot.login(token);
+client.login(token);
