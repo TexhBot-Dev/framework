@@ -11,13 +11,12 @@ export default async function (client: TechClient) {
 		.crawl(process.cwd() + "/dist/commands")
 		.withPromise();
 
-		if (typeof commandFiles === typeof Array<string>) {
-			for (let i = 0, l = (commandFiles as string[]).length; i < l; i++) {
-				const file = (commandFiles as string[])[i];
-				const command = await import(file);
-				const commandInstance: Command = new command();
+	for (let i = 0, l = (commandFiles as string[]).length; i < l; i++) {
+		const file = (commandFiles as string[])[i];
+		console.log(`Loading command ${file}...`);
+		const command = (await import(file)).default;
+		const commandInstance: Command = new command();
 
-				client.commands.set(commandInstance.data.name, commandInstance);
-			}
-		}
+		client.commands.set(commandInstance.data.name, commandInstance);
+	}
 };
