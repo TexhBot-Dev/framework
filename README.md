@@ -3,4 +3,4 @@
 ### Notes
 
 - The `commands` directory is temporary for testing purposes.
-- Read the [docs](./src/docs);
+- Read the [docs](./docs);
