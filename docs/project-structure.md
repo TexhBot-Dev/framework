@@ -12,7 +12,7 @@ For JavaScript projects, you can either use `src` or `dist` as your base directo
 
 ### Example Project Structure
 ```
--> home/someone/myownbot
+-> home/someone/myownbot/
   -> src/
     -> client.ts
     -> commands/
