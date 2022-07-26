@@ -24,5 +24,11 @@
   },
   "lint-staged": {
     "*.ts": "prettier --write"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": false
   }
 }
