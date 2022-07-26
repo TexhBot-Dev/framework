@@ -1,6 +1,5 @@
 # Discord.js Framework WIP
+A discord.js framework that provides performance and simplicity.
 
 ### Notes
-
-- The `commands` directory is temporary for testing purposes.
 - Read the [docs](./docs);
