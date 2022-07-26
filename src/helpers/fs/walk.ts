@@ -14,4 +14,3 @@ export async function walk(dir: string, cb: (file: string) => unknown) {
     file.isDirectory() ? walk(path, cb) : cb(path);
   }
 }
-

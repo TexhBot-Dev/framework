@@ -1,2 +1,2 @@
-export * from "./typings"
-export * from "./structures"
+export * from "./typings";
+export * from "./structures";
