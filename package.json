@@ -6,7 +6,8 @@
   "scripts": {
     "test": "npm run build && node dist/__testing__/client",
     "build": "tsc",
-    "start": "npm run build && node dist/deploy"
+    "start": "npm run build && node dist/deploy",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +17,12 @@
     "discord.js": "^14.0.3"
   },
   "devDependencies": {
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
     "typescript": "^4.7.4"
+  },
+  "lint-staged": {
+    "*.ts": "prettier --write"
   }
 }
