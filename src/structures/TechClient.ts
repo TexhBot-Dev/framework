@@ -42,19 +42,13 @@ export class TechClient extends Client {
   public override async login(token = this.token!) {
     this.token ??= token;
 
-    super
-      .login(this.token)
+    await super
+      .login(token)
       .then(() => console.log("Logged in."))
       .catch(console.error);
 
-    this.once("ready", () => {
-      this.#deploy()
-        .then(() =>
-          console.log(`Completed startup! Ready on client ${this.user!.tag}.`)
-        )
-        .catch(console.error);
-    });
+    await this.#deploy().catch(console.error);
 
-    return "Logged in.";
+    return token;
   }
 }
