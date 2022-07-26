@@ -11,6 +11,7 @@ For JavaScript projects, you can either use `src` or `dist` as your base directo
 
 - The `commands` directory holds the bot's commands.
 - The `preconditions` directory holds the bot's preconditions (this folder name can be something else, we do not use it internally).
+- The `listeners` directory holds any listeners the bot has.
 - ...
 
 ### Example Project Structure

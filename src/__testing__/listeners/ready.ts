@@ -4,7 +4,7 @@ const ready: Listener<"ready"> = {
   event: "ready",
   once: true,
   execute: (client) => {
-    console.log(`Listeners work! ${client.ws.ping}`);
+    console.log(`Listeners are working for ${client.user.tag}!`);
   },
 };
 
