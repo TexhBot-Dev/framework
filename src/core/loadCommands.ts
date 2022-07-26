@@ -3,7 +3,7 @@ import { TechClient } from "../structures/TechClient";
 import { Command } from "../typings";
 
 export default async function (client: TechClient) {
-  walk(getSourceDir() + "/commands", async (file) => {
+  walk(client.srcDir + "/commands", async (file) => {
     if (!file.endsWith(".js") || file.startsWith("_")) return;
 
     console.log(`Loading command ${file}...`);

@@ -3,16 +3,21 @@ import { REST } from "@discordjs/rest";
 import { Routes } from "discord.js";
 import startup from "../core/startup";
 import { Command } from "../typings";
+import { getSourceDir } from "../helpers";
 
 export class TechClient extends Client {
+  /** The bot's commands. */
   public commands: Collection<string, Command>;
+  public srcDir: string;
 
   public constructor(
-    options: ClientOptions = {
+    options: ClientOptions & { srcDir?: string } = {
       intents: 0,
+      srcDir: getSourceDir(),
     }
   ) {
     super(options);
+    this.srcDir = options.srcDir ?? getSourceDir();
     this.commands = new Collection<string, Command>();
 
     startup(this);
@@ -43,7 +48,6 @@ export class TechClient extends Client {
       .catch(console.error);
 
     this.once("ready", () => {
-      // Ensure this.#deploy has the client's applicationId and for the rest of the lifecycle.
       this.#deploy()
         .then(() =>
           console.log(`Completed startup! Ready on client ${this.user!.tag}.`)

@@ -1,9 +1,12 @@
 import { Interaction } from "discord.js";
 import { TechClient } from "../structures/TechClient";
 import loadCommands from "./loadCommands";
+import { loadListeners } from "./loadListeners";
 
 export default async function (client: TechClient) {
   await loadCommands(client);
+  loadListeners(client);
+
   client.on("interactionCreate", async (interaction: Interaction) => {
     if (!interaction.isChatInputCommand()) return;
 
