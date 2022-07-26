@@ -11,7 +11,7 @@ export default async function (client: TechClient) {
     if (command === undefined) return;
 
     try {
-      if (command.preconditions?.length !== undefined) {
+      if (command.preconditions?.length) {
         for (const precondition of command.preconditions) {
           const result = await precondition(interaction);
           if (!result) return;
