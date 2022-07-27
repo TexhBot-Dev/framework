@@ -1,1 +1,1 @@
-export * from "./TechClient";
+export * from './TechClient';
