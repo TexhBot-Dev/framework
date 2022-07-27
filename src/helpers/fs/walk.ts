@@ -13,7 +13,7 @@ export async function walk(dir: string, filter?: RegExp): Promise<string[]> {
       if (filter && !filter.test(dirEntry.name)) continue;
       files.push(dir + '/' + dirEntry.name);
     } else if (dirEntry.isDirectory()) {
-      files.push(...await walk(dir + '/' + dirEntry.name));
+      files.push(...await walk(dir + '/' + dirEntry.name, filter));
     }
   }
   return files;
