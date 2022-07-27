@@ -9,19 +9,19 @@ let sourceDir: string;
  * @returns The cwd + src or dist
  */
 export function getSourceDir() {
-  if (sourceDir) return sourceDir;
+	if (sourceDir) return sourceDir;
 
-  const cwd = process.cwd();
+	const cwd = process.cwd();
 
-  // Prioritize dist folder for TypeScript users
-  const dist = cwd + "/dist";
-  if (existsSync(dist)) return (sourceDir = dist);
+	// Prioritize dist folder for TypeScript users
+	const dist = cwd + "/dist";
+	if (existsSync(dist)) return (sourceDir = dist);
 
-  // Fallback to src folder for non-TypeScript users, non-TypeScript users may choose to use dist folder instead however
-  const src = cwd + "/src";
-  if (existsSync(src)) return (sourceDir = src);
+	// Fallback to src folder for non-TypeScript users, non-TypeScript users may choose to use dist folder instead however
+	const src = cwd + "/src";
+	if (existsSync(src)) return (sourceDir = src);
 
-  throw new Error(
-    "Could not find source directory! Please ensure if you are using TypeScript, you have a dist folder for transpiled files. If you are using JavaScript, please make a src or dist for your JavaScript files."
-  );
+	throw new Error(
+		"Could not find source directory! Please ensure if you are using TypeScript, you have a dist folder for transpiled files. If you are using JavaScript, please make a src or dist for your JavaScript files."
+	);
 }

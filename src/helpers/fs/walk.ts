@@ -3,14 +3,18 @@ import { opendir } from "node:fs/promises";
 /**
  * Walks recursively through a directory and executes a callback for each file.
  * @param dir The directory to walk
- * @param cb The callback to call for each file
+ * @param filter Regex to filter files by
  */
-export async function walk(dir: string, cb: (file: string) => unknown) {
-  try {
-    const files = await opendir(dir);
-    for await (const file of files) {
-      const path = dir + "/" + file.name;
-      file.isDirectory() ? walk(path, cb) : cb(path);
-    }
-  } catch {}
+export async function walk(dir: string, filter?: RegExp): Promise<string[]> {
+	const files: string[] = [];
+	const dirEntries = await opendir(dir);
+	for await (const dirEntry of dirEntries) {
+		if (dirEntry.isFile()) {
+			if (filter && !filter.test(dirEntry.name)) continue;
+			files.push(dir + "/" + dirEntry.name);
+		} else if (dirEntry.isDirectory()) {
+			files.push(...await walk(dir + "/" + dirEntry.name));
+		}
+	}
+	return files;
 }

@@ -1,6 +1,6 @@
 {
-  "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
+	"compilerOptions": {
+		"allowSyntheticDefaultImports": true,
 		"alwaysStrict": true,
 		"declaration": true,
 		"declarationMap": true,
@@ -11,7 +11,9 @@
 		"importHelpers": true,
 		"importsNotUsedAsValues": "error",
 		"incremental": true,
-		"lib": ["esnext"],
+		"lib": [
+			"esnext"
+		],
 		"module": "CommonJS",
 		"moduleResolution": "Node",
 		"newLine": "lf",
@@ -32,5 +34,5 @@
 		"allowUnusedLabels": false,
 		"exactOptionalPropertyTypes": false,
 		"noImplicitOverride": true
-  }
+	}
 }
