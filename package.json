@@ -2,7 +2,7 @@
 	"name": "@texhbot-dev/framework",
 	"version": "1.0.1",
 	"description": "",
-	"main": "index.js",
+	"main": "dist/index.js",
 	"repository": "https://github.com/TexhBot-Dev/framework.git",
 	"scripts": {
 		"test": "npm run build && node dist/__testing__/client",

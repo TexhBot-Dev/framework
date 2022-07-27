@@ -1,5 +1,6 @@
 import {walk} from '../helpers';
 import type {TechClient} from '../structures/TechClient';
+import type {Command} from '../typings';
 
 export default async function(client: TechClient) {
   const allCommandFiles = await walk(client.srcDir + '/commands', /\.js$/);
@@ -9,6 +10,7 @@ export default async function(client: TechClient) {
     console.log(`Loading command ${file}...`);
 
     const Command = (await import(file)).default;
-    client.commands.set(Command.data.name, new Command());
+    const commandInsance: Command = new Command();
+    client.commands.set(commandInsance.data.name, commandInsance);
   }
 }
