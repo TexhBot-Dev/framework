@@ -14,12 +14,11 @@ npm install discord.js pkgname
 
 ```ts
 import { Client, GatewayIntentBits } from "discord.js";
-import { Bot } from "pkgname";
+import { TechClient } from "pkgname";
 
-const client = new Client({
+const client = new TechClient({
   intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers],
 });
-const bot = new Bot(client);
 
-bot.login("token");
+client.login("token");
 ```
