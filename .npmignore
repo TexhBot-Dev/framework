@@ -1,7 +1,4 @@
 .husky
 docs
 src/
-dist/__testing__
-config.json
-dist/config.json
-tsconfig.tsbuildinfo
+dist/tsconfig.tsbuildinfo
