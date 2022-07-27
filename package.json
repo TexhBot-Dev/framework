@@ -1,8 +1,9 @@
 {
-	"name": "framework",
+	"name": "@TexhBot-Dev/framework",
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
+	"repository": "https://github.com/TexhBot-Dev/framework.git",
 	"scripts": {
 		"test": "npm run build && node dist/__testing__/client",
 		"build": "tsc",
@@ -29,5 +30,8 @@
 	},
 	"lint-staged": {
 		"*.ts": "eslint src/**/*.ts --fix"
+	},
+	"publishConfig": {
+		"registry":"https://npm.pkg.github.com"
 	}
 }
