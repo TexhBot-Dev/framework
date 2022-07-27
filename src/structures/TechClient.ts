@@ -2,7 +2,7 @@ import { Client, ClientOptions, Collection } from "discord.js";
 import { REST } from "@discordjs/rest";
 import { Routes } from "discord.js";
 import startup from "../core/startup";
-import { Command } from "../typings";
+import type { Command } from "../typings";
 import { getSourceDir } from "../helpers";
 
 export class TechClient extends Client {

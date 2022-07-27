@@ -1,6 +1,6 @@
-import { getSourceDir, walk } from "../helpers";
-import { TechClient } from "../structures";
-import { InternalListener } from "../typings";
+import { walk } from "../helpers";
+import type { TechClient } from "../structures";
+import type { InternalListener } from "../typings";
 
 export function loadListeners(client: TechClient) {
   walk(client.srcDir + "/listeners", async (file) => {

@@ -1,5 +1,5 @@
-import { SlashCommandBuilder, CommandInteraction } from "discord.js";
-import { Precondition } from "./Precondition";
+import type { SlashCommandBuilder, CommandInteraction } from "discord.js";
+import type { Precondition } from "./Precondition";
 
 export interface Command {
   /**

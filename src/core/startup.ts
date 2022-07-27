@@ -1,5 +1,5 @@
-import { Interaction } from "discord.js";
-import { TechClient } from "../structures/TechClient";
+import type { Interaction } from "discord.js";
+import type { TechClient } from "../structures/TechClient";
 import loadCommands from "./loadCommands";
 import { loadListeners } from "./loadListeners";
 

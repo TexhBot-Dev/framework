@@ -1,6 +1,6 @@
-import { getSourceDir, walk } from "../helpers";
-import { TechClient } from "../structures/TechClient";
-import { Command } from "../typings";
+import { walk } from "../helpers";
+import type { TechClient } from "../structures/TechClient";
+import type { Command } from "../typings";
 
 export default async function (client: TechClient) {
   walk(client.srcDir + "/commands", async (file) => {

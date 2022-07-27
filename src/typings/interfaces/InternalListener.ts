@@ -1,4 +1,4 @@
-import { ClientEvents } from "discord.js";
+import type { ClientEvents } from "discord.js";
 
 /** Listener interface without generics or inference. */
 export interface InternalListener {
