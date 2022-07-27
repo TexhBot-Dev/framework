@@ -1,6 +1,6 @@
 .husky
 docs
-src
+src/
 dist/__testing__
 config.json
 dist/config.json
