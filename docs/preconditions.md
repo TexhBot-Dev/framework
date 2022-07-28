@@ -8,10 +8,10 @@ Preconditions are checks that can be ran before executing a command's correspond
 2. Create a file.
 3. **Make a function that returns a truthy value if we should continue executing the command, return a falsy value to stop further execution:**
 ```ts
-import { CommandInteraction } from "discord.js";
-import { Command } from "pkgname";
+import { ChatInputCommandInteraction } from "discord.js";
+import { Command } from "@texhbot-dev/framework";
 
-export function guildOnly(interaction: CommandInteraction) {
+export function guildOnly(interaction: ChatInputCommandInteraction) {
   if (interaction.guild) return true;
 
   interaction.reply("Nope! This command can only be executed in guilds.");
@@ -27,7 +27,8 @@ export function guildOnly(interaction: CommandInteraction) {
 
 ```ts
 import { guildOnly } from "../preconditions/guildOnly";
-import { Command } from "pkgname";
+import { ChatInputCommandInteraction } from "discord.js";
+import { Command } from "@texhbot-dev/framework";
 
 export default class PingCommand implements Command {
   public data = new SlashCommandBuilder()
@@ -35,7 +36,7 @@ export default class PingCommand implements Command {
     .setDescription("Pong!");
   public preconditions = [guildOnly];
 
-  public chatInputRun(interaction: CommandInteraction) {
+  public chatInputRun(interaction: ChatInputCommandInteraction) {
     return interaction.reply({ content: "Pong!" });
   }
 }

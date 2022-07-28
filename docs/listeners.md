@@ -3,7 +3,7 @@
 2. Create a file.
 3. In the file, create a listener as such:
 ```ts
-import { Listener } from "../../typings";
+import { Listener } from "@texhbot-dev/framework";
 
 const ready: Listener<"ready"> = {
   event: "ready", // the event name, can be any discord.js event

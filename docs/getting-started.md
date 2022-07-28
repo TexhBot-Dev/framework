@@ -14,7 +14,7 @@ npm install discord.js pkgname
 
 ```ts
 import { Client, GatewayIntentBits } from "discord.js";
-import { TechClient } from "pkgname";
+import { TechClient } from "@texhbot-dev/framework";
 
 const client = new TechClient({
   intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers],

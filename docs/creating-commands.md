@@ -5,15 +5,15 @@
 3. Create your command.
 
 ```ts
-import { CommandInteraction, SlashCommandBuilder } from "discord.js";
-import { Command } from "pkgname";
+import { ChatInputCommandInteraction, SlashCommandBuilder } from "discord.js";
+import { Command } from "@texhbot-dev/framework";
 
 export default class PingCommand implements Command {
   public data = new SlashCommandBuilder()
     .setName("ping")
     .setDescription("Pong!");
 
-  public chatInputRun(interaction: CommandInteraction) {
+  public chatInputRun(interaction: ChatInputCommandInteraction) {
     return interaction.reply({ content: "Pong!" });
   }
 }
