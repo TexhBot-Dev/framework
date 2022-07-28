@@ -1,4 +1,4 @@
-import type {SlashCommandBuilder, CommandInteraction} from 'discord.js';
+import type {SlashCommandBuilder, ChatInputCommandInteraction} from 'discord.js';
 import type {Precondition} from './Precondition';
 
 export interface Command {
@@ -7,9 +7,9 @@ export interface Command {
      */
     preconditions?: Precondition[];
     /** The command data. */
-    data: SlashCommandBuilder;
+    data: Omit<SlashCommandBuilder, 'addSubcommand' | 'addSubcommandGroup'>;
     /** The command's chat input handler. */
     chatInputRun: (
-        interaction: CommandInteraction
-    ) => Promise<unknown> | ((interaction: CommandInteraction) => unknown);
+        interaction: ChatInputCommandInteraction
+    ) => Promise<unknown> | ((interaction: ChatInputCommandInteraction) => unknown);
 }
