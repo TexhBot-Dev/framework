@@ -1,4 +1,4 @@
-.husky
-docs
+.husky/
+docs/
 src/
 dist/tsconfig.tsbuildinfo
