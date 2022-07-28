@@ -20,8 +20,8 @@ export class TechClient extends Client {
   ) {
     super(options);
     this.srcDir = options.srcDir ?? getSourceDir();
-    this.commandDir = path.join(this.srcDir, '.', 'commands');
-    this.listenerDir = path.join(this.srcDir, '.', 'listeners');
+    this.commandDir = options.commandDir ?? path.join(this.srcDir, '.', 'commands');
+    this.listenerDir = options.listenerDir ?? path.join(this.srcDir, '.', 'listeners');
     this.commands = new Collection<string, Command>();
 
     startup(this);
