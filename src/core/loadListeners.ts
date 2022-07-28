@@ -3,7 +3,7 @@ import type {TechClient} from '../structures';
 import type {InternalListener} from '../typings';
 
 export default async function loadListeners(client: TechClient) {
-  const allListenerFiles = await walk(client.srcDir + '/listeners', /\.js$/);
+  const allListenerFiles = await walk(client.listenerDir, /\.js$/);
   for (let i = allListenerFiles.length; i > 0; i--) {
     const file = allListenerFiles[i - 1];
 

@@ -3,7 +3,7 @@ import type {TechClient} from '../structures/TechClient';
 import type {Command} from '../typings';
 
 export default async function(client: TechClient) {
-  const allCommandFiles = await walk(client.srcDir + '/commands', /\.js$/);
+  const allCommandFiles = await walk(client.commandDir, /\.js$/);
   for (let i = allCommandFiles.length; i > 0; i--) {
     const file = allCommandFiles[i - 1];
 
