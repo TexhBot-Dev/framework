@@ -1,7 +1,7 @@
 import {opendir} from 'node:fs/promises';
 
 /**
- * Walks recursively through a directory and executes a callback for each file.
+ * Walks recursively through a directory and executes regex if supplied
  * @param {string} dir  The directory to walk
  * @param {regex} filter Regex to filter files by
  */
