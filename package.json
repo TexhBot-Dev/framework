@@ -5,7 +5,7 @@
 	"main": "dist/index.js",
 	"repository": "https://github.com/TexhBot-Dev/framework.git",
 	"scripts": {
-		"prepublish": "tsc && cp ./src/typings ./dist/typings",
+		"prepublish": "tsc && cp -r ./src/typings ./dist/typings",
 		"test": "npm run build && node dist/__testing__/client",
 		"build": "tsc",
 		"start": "npm run build && node dist/deploy",
