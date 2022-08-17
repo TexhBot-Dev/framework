@@ -1,6 +1,5 @@
 import {walk} from '../helpers';
-import type {TechClient} from '../structures/TechClient';
-import type {Command} from '../typings';
+import type {TechClient, Command} from '../structures';
 
 export default async function(client: TechClient) {
   const allCommandFiles = await walk(client.commandDir, /\.js$/);

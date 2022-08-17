@@ -2,8 +2,9 @@ import {Client, Collection, Routes} from 'discord.js';
 import {REST} from '@discordjs/rest';
 import path from 'node:path';
 import startup from '../core/startup';
-import type {Command, TechOptions} from '../typings';
+import type {TechOptions} from '../typings';
 import {getSourceDir} from '../helpers';
+import type {Command} from '.';
 
 export class TechClient extends Client {
   /** The bot's commands. */
@@ -45,16 +46,10 @@ export class TechClient extends Client {
         .catch(console.error);
   }
 
-  public override async login(token = this.token!) {
-    this.token ??= token;
-
-    await super
-        .login(token)
-        .then(() => console.log('Logged in.'))
-        .catch(console.error);
-
+  public override async login(token?: string) {
     await this.#deploy().catch(console.error);
 
-    return token;
+    return await super
+        .login(token);
   }
 }
