@@ -22,7 +22,7 @@ export abstract class Command {
   }
 
   /** The command's chat input handler. */
-  public abstract chatInputRun: (
+  public abstract chatInputRun(
         interaction: ChatInputCommandInteraction
-    ) => unknown;
+  ): unknown;
 }
