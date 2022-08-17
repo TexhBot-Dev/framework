@@ -11,7 +11,11 @@ export abstract class Command {
   /** The command data. */
   public abstract data: Omit<SlashCommandBuilder, 'addSubcommand' | 'addSubcommandGroup'>;
 
+  /** The Bot Client */
   public client: TechClient;
+
+  /** Is This an NSFW command? */
+  public isNSFW: boolean = false;
 
   public constructor(client: TechClient) {
     this.client = client;
