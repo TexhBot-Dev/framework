@@ -47,9 +47,10 @@ export class TechClient extends Client {
   }
 
   public override async login(token?: string) {
+    const thingToReturn = await super
+        .login(token);
     await this.#deploy().catch(console.error);
 
-    return await super
-        .login(token);
+    return thingToReturn;
   }
 }
