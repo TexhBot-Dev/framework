@@ -1,7 +1,19 @@
-import {ChannelType, Interaction} from 'discord.js';
+import type {CommandInteraction, Interaction} from 'discord.js';
+import type {Command} from '../structures';
 import type {TechClient} from '../structures/TechClient';
 import loadCommands from './loadCommands';
 import loadListeners from './loadListeners';
+
+async function runPreconditions(command: Command, ctx: CommandInteraction) {
+  if (command.preconditions?.length) {
+    for (const precondition of command.preconditions) {
+      const result = await precondition(ctx);
+      if (!result) return false;
+    }
+  }
+
+  return true;
+}
 
 export default async function(client: TechClient) {
   await loadCommands(client);
@@ -14,19 +26,8 @@ export default async function(client: TechClient) {
     if (command === undefined) return;
 
     try {
-      if (command.preconditions?.length) {
-        for (const precondition of command.preconditions) {
-          const result = await precondition(interaction);
-          if (!result) return;
-        }
-        if (
-          command.isNSFW &&
-          interaction.channel?.type === ChannelType.GuildText &&
-          !interaction.channel?.nsfw
-        ) {
-          return;
-        }
-      }
+      const preconditionResult = runPreconditions(command, interaction);
+      if (!preconditionResult) return;
 
       await command.chatInputRun(interaction);
     } catch (error) {
