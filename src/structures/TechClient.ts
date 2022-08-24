@@ -21,8 +21,10 @@ export class TechClient extends Client {
   ) {
     super(options);
     this.srcDir = options.srcDir ?? getSourceDir();
-    this.commandDir = options.commandDir ?? path.join(this.srcDir, '.', 'commands');
-    this.listenerDir = options.listenerDir ?? path.join(this.srcDir, '.', 'listeners');
+    this.commandDir =
+      options.commandDir ?? path.join(this.srcDir, '.', 'commands');
+    this.listenerDir =
+      options.listenerDir ?? path.join(this.srcDir, '.', 'listeners');
     this.commands = new Collection<string, Command>();
 
     startup(this);
@@ -47,8 +49,7 @@ export class TechClient extends Client {
   }
 
   public override async login(token?: string) {
-    const thingToReturn = await super
-        .login(token);
+    const thingToReturn = await super.login(token);
     await this.#deploy().catch(console.error);
 
     return thingToReturn;

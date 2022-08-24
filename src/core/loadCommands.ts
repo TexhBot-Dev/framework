@@ -9,7 +9,7 @@ export default async function(client: TechClient) {
     console.log(`Loading command ${file}...`);
 
     const Command = (await import(file)).default;
-    const commandInsance: Command = new Command(client);
-    client.commands.set(commandInsance.data.name, commandInsance);
+    const commandInstance: Command = new Command(client);
+    client.commands.set(commandInstance.data.name, commandInstance);
   }
 }

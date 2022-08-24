@@ -19,7 +19,13 @@ export default async function(client: TechClient) {
           const result = await precondition(interaction);
           if (!result) return;
         }
-        if (command.isNSFW && interaction.channel?.type === ChannelType.GuildText && !interaction.channel?.nsfw) return;
+        if (
+          command.isNSFW &&
+          interaction.channel?.type === ChannelType.GuildText &&
+          !interaction.channel?.nsfw
+        ) {
+          return;
+        }
       }
 
       await command.chatInputRun(interaction);

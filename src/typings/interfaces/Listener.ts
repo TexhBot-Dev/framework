@@ -17,7 +17,7 @@ export default ready;
 ```
  */
 export interface Listener<T extends keyof ClientEvents> {
-    event: T;
-    once?: boolean;
-    execute(...args: ClientEvents[T]): unknown;
+  event: T;
+  once?: boolean;
+  execute(...args: ClientEvents[T]): unknown;
 }
